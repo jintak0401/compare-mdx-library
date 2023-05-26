@@ -47,16 +47,11 @@ export const writePostDataWithMdxBundler = async (slug: string) => {
   const { code, frontmatter } = await getPostDataWithMdxBundler(slug);
   const { data } = matter(code);
 
-  const postDirectory = path.join(
-    process.cwd(),
-    'public',
-    'posts',
-    'mdx-bundler'
-  );
+  const postDirectory = path.join(process.cwd(), 'public', 'compare');
   if (!fs.existsSync(postDirectory)) {
     fs.mkdirSync(postDirectory);
   }
 
-  const postPath = path.join(postDirectory, `${slug}.json`);
+  const postPath = path.join(postDirectory, `mdx-bundler.json`);
   fs.writeFileSync(postPath, JSON.stringify({ ...data, ...frontmatter, code }));
 };

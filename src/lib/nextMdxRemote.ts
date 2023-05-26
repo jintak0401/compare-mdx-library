@@ -44,16 +44,11 @@ export const writePostDataWithMdxRemote = async (slug: string) => {
   const { code, frontmatter } = await getPostDataWithMdxRemote(slug);
   const { data } = matter(code);
 
-  const postDirectory = path.join(
-    process.cwd(),
-    'public',
-    'posts',
-    'next-mdx-remote'
-  );
+  const postDirectory = path.join(process.cwd(), 'public', 'compare');
   if (!fs.existsSync(postDirectory)) {
     fs.mkdirSync(postDirectory);
   }
 
-  const postPath = path.join(postDirectory, `${slug}.json`);
+  const postPath = path.join(postDirectory, `next-mdx-remote.json`);
   fs.writeFileSync(postPath, JSON.stringify({ ...data, ...frontmatter, code }));
 };
