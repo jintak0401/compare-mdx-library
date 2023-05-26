@@ -1,38 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# mdx-bundler  vs  next-mdx-remote
 
-## Getting Started
+## 방법
 
-First, run the development server:
+1. 비교하고 싶은 내용을 `data/blog/sample.mdx`에 복사, 붙여넣기 해주세요. (현재 예시로 작성되어 있습니다)
+2. dev 모드에서 비교하고 싶다면 
+   1. `yarn dev`로 실행해주세요.
+   2. 메인 페이지에서 `MDX Bundler` 버튼을 클릭하면 `public/compare/mdx-bundler.json` 파일이, `Next MDX Remote` 버튼을 클릭하면 `public/compare/next-remote-mdx.json` 파일이 생성되며 라우팅 됩니다.
+   3. 두 파일의 사이즈를 비교하시면 됩니다.
+3. build 모드에서 비교하고 싶다면
+   1. `yarn build`로 빌드 해주세요.
+   2. `public/compare` 폴더 안에 `mdx-bundler.json`과 `next-mdx-remote.json` 파일이 생성됩니다.
+   3. 두 파일의 사이즈를 비교하시면 됩니다.
+   4. 만약 실행되는 것도 보고 싶으시면 `yarn start`로 실행해주세요.
+4. contentlayer를 사용한 결과를 보고 싶으시면
+   1. `contentlayer build`를 실행해주세요. `yarn build`를 해도 됩니다.
+   2. `.contentlayer/generated/Blog/blog__sample.mdx.json` 파일이 생성됩니다.
+   3. 이 파일의 사이즈를 비교하시면 됩니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 결과
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[use Query 동작원리(1)](https://www.timegambit.com/blog/digging/react-query/01) 포스트로 비교해본 결과 다음과 같습니다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+|            |mdx-bundler|next-mdx-remote|
+|:----------:|:---:|:---:|
+|    dev     |621KB|531KB|
+| production |176KB|264KB|
