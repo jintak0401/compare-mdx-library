@@ -15,7 +15,6 @@ export const getStaticProps = async () => {
 const ContentlayerPage = (
   postData: InferGetStaticPropsType<typeof getStaticProps>
 ) => {
-  console.log(postData);
   const MDXLayout = useMDXComponent(postData.body!.code);
   return (
     <>

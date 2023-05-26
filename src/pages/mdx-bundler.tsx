@@ -20,7 +20,6 @@ const MdxBundlerPage = ({
   code,
   frontmatter,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(code);
   const Component = getMDXComponent(code);
   return (
     <>

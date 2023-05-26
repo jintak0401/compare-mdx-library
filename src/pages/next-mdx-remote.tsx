@@ -20,7 +20,6 @@ const NextMdxRemotePage = ({
   code,
   frontmatter,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(code);
   const Component = () =>
     MDXRemote({
       frontmatter: frontmatter,
